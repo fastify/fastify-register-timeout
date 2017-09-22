@@ -29,4 +29,3 @@ fastfiy.registerWithTimeout(require('some-async-plugin'))
 There're two reason for this plugin:
 - in some case you need to know if your external dependencies are reachable before starting your server.
 - during the test, you need to know which plugin fails
->>>>>>> Add plugin name in error message. Fix travis. Add readme
