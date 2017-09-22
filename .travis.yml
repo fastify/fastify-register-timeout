@@ -7,7 +7,7 @@ node_js:
   - "4"
 
 script:
-  - npm run coveralls
+  - npm t
 
 notifications:
   email:

@@ -16,7 +16,7 @@ module.exports = fp(function (fastify, opts, next) {
     const timerId = setTimeout(function () {
       if (isAlreadyCalled) return
       isAlreadyCalled = true
-      pluginNext(new Error('Timeout reached'))
+      pluginNext(new Error('Timeout reached: ' + plugin.name))
     }, timeout)
 
     this.register(plugin, pluginOptions, function (err, r) {

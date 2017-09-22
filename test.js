@@ -2,6 +2,7 @@
 
 const t = require('tap')
 const Fastify = require('fastify')
+const fp = require('fastify-plugin')
 
 function pluginOk (fastify, opts, next) { next() }
 function pluginAsyncOk (fastify, opts, next) { setTimeout(next, 100) }
@@ -16,6 +17,18 @@ t.test('ok', t => {
   fastify.register(require('./index'), err => {
     t.error(err)
     fastify.registerWithTimeout(pluginOk, err => {
+      t.error(err)
+    })
+  })
+})
+
+t.test('ok global plugin', t => {
+  t.plan(2)
+  const fastify = Fastify()
+
+  fastify.register(require('./index'), err => {
+    t.error(err)
+    fastify.registerWithTimeout(fp(pluginOk), err => {
       t.error(err)
     })
   })
@@ -78,7 +91,7 @@ t.test('ko timeout', t => {
     t.error(err)
     fastify.registerWithTimeout(pluginAsyncBadGuy, {}, err => {
       t.ok(err instanceof Error)
-      t.equal(err.message, 'Timeout reached')
+      t.equal(err.message, 'Timeout reached: pluginAsyncBadGuy')
     })
   })
 })
@@ -91,7 +104,20 @@ t.test('ko timeout 2', t => {
     t.error(err)
     fastify.registerWithTimeout(pluginAsyncTimeout, {}, err => {
       t.ok(err instanceof Error)
-      t.equal(err.message, 'Timeout reached')
+      t.equal(err.message, 'Timeout reached: pluginAsyncTimeout')
+    })
+  })
+})
+
+t.test('ko timeout as global plugin', t => {
+  t.plan(3)
+  const fastify = Fastify()
+
+  fastify.register(require('./index'), { timeout: 1000 }, err => {
+    t.error(err)
+    fastify.registerWithTimeout(fp(pluginAsyncBadGuy), {}, err => {
+      t.ok(err instanceof Error)
+      t.equal(err.message, 'Timeout reached: pluginAsyncBadGuy')
     })
   })
 })
