@@ -1,0 +1,30 @@
+{
+  "name": "fastify-register-timeout",
+  "version": "0.1.0",
+  "description": "Register fastify plugin with a timeout",
+  "main": "index.js",
+  "dependencies": {
+    "fastify-plugin": "^0.1.1"
+  },
+  "devDependencies": {
+    "fastify": "^0.28.2",
+    "standard": "^10.0.3",
+    "tap": "^10.7.2"
+  },
+  "scripts": {
+    "test": "standard && tap test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fastify/fastify-register-timeout.git"
+  },
+  "keywords": [
+    "fastify"
+  ],
+  "author": "Tommaso Allevi - @allevo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fastify/fastify-register-timeout/issues"
+  },
+  "homepage": "https://github.com/fastify/fastify-register-timeout#readme"
+}
