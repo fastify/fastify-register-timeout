@@ -21,7 +21,7 @@ module.exports = fp(function (fastify, opts, next) {
 
     this.register(plugin, pluginOptions, function (err, r) {
       if (isAlreadyCalled) return
-      clearInterval(timerId)
+      clearTimeout(timerId)
       isAlreadyCalled = true
       pluginNext(err, r)
     })
