@@ -24,6 +24,9 @@ to use like this
 fastfiy.registerWithTimeout(require('some-async-plugin'))
 ```
 
+*NB:* in case of timeout, an exception is thrown with the function name as message.
+This is mean that the anonymous function should not be used here!
+
 ## Why
 
 There're two reason for this plugin:
