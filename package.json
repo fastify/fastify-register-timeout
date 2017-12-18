@@ -7,7 +7,7 @@
     "fastify-plugin": "^0.1.1"
   },
   "devDependencies": {
-    "fastify": "^0.29.0",
+    "fastify": "^0.36.0",
     "pre-commit": "^1.2.2",
     "standard": "^10.0.3",
     "tap": "^10.7.2"
