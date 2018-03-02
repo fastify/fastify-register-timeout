@@ -3,6 +3,8 @@
 
 Register [`fastify`](https://github.com/fastify/fastify) plugin with a timeout
 
+**NB:** this plugin is going to DEPRECATED because it suggests a bad approach.
+
 ## Install
 
 ```
