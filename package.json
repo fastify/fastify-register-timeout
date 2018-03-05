@@ -4,13 +4,13 @@
   "description": "Register fastify plugin with a timeout",
   "main": "index.js",
   "dependencies": {
-    "fastify-plugin": "^0.1.1"
+    "fastify-plugin": "^0.2.2"
   },
   "devDependencies": {
-    "fastify": "^0.29.0",
+    "fastify": "^0.43.0",
     "pre-commit": "^1.2.2",
-    "standard": "^10.0.3",
-    "tap": "^10.7.2"
+    "standard": "^11.0.0",
+    "tap": "^11.1.1"
   },
   "scripts": {
     "test": "standard && tap test.js"
